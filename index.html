@@ -62,36 +62,25 @@
     /* Hero Section */
     .container {
       position: relative;
-      top: 50vh;
+      top: 15vh; /* already at final position */
       text-align: center;
       opacity: 0;
-      animation: fadeIn 1.5s ease forwards, moveUp 1.8s ease-in-out 2s forwards;
+      animation: fadeIn 1.5s ease forwards;
     }
 
     .container h1 {
       font-size: 3rem;
       margin-bottom: 1rem;
-      transition: all 0.8s ease;
-      position: relative;
-      top: 6px; /* nudged heading down */
     }
 
     .container p {
       font-size: 1.2rem;
       color: #aaa;
-      position: relative;
-      top: 20px; /* pushed bio further down */
     }
 
     @keyframes fadeIn {
+      from { opacity: 0; }
       to { opacity: 1; }
-    }
-
-    @keyframes moveUp {
-      to {
-        top: 15vh;          /* moved higher */
-        transform: scale(0.9); /* slightly smaller */
-      }
     }
 
     /* About Section */
@@ -101,15 +90,16 @@
       align-items: center;
       padding: 100px 10%;
       gap: 50px;
-      opacity: 0;
-      transform: translateX(-50px);
-      animation: slideFadeIn 1.5s ease 3.5s forwards;
     }
 
     .about p {
       flex: 1;
       font-size: 1.1rem;
       line-height: 1.6;
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: slideIn 1.5s ease forwards;
+      animation-delay: 0.5s;
     }
 
     .about img {
@@ -117,18 +107,16 @@
       max-width: 33%; /* 3x smaller */
       height: auto;
       border-radius: 12px;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+      animation-delay: 1s;
     }
 
-    @keyframes slideFadeIn {
+    @keyframes slideIn {
       to {
         opacity: 1;
         transform: translateX(0);
       }
-    }
-
-    /* Scroll Fade Effect */
-    .fade-on-scroll {
-      transition: opacity 0.8s ease;
     }
 
     /* Mission Section */
