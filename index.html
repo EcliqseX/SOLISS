@@ -84,63 +84,46 @@
     }
 
     /* About Section */
-    .about {
+    .about-grid {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 100px 10%;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 50px;
-    }
-
-    .about p {
-      flex: 1;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      opacity: 0;
-      transform: translateX(-50px);
-      animation: slideIn 1.5s ease forwards;
-      animation-delay: 0.5s;
-    }
-
-    .about img {
-      flex: 1;
-      max-width: 33%; /* 3x smaller */
-      height: auto;
-      border-radius: 12px;
-      opacity: 0;
-      animation: fadeIn 1.5s ease forwards;
-      animation-delay: 1s;
-    }
-
-    @keyframes slideIn {
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    /* Mission Section */
-    .mission {
-      text-align: center;
       padding: 100px 10%;
+    }
+
+    .about-card {
+      flex: 1 1 250px;
+      max-width: 300px;
+      text-align: center;
       opacity: 0;
       transform: translateY(30px);
-      transition: all 1s ease;
+      animation: fadeSlideIn 1.2s forwards;
     }
 
-    .mission.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .about-card img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 12px;
+      margin-bottom: 15px;
     }
 
-    .mission h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
+    .about-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
     }
 
-    .mission p {
-      font-size: 1.2rem;
+    .about-card p {
+      font-size: 1rem;
       color: #ccc;
+      line-height: 1.4;
+    }
+
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Footer Buttons */
@@ -159,6 +142,7 @@
       background: transparent;
       cursor: pointer;
       font-size: 1rem;
+      text-decoration: none; /* for <a> links */
       transition: all 0.3s ease;
     }
 
@@ -172,8 +156,10 @@
 <body>
   <!-- Nav Bar -->
   <nav>
+    <a href="index.html">Home</a>
     <a href="store.html">Store</a>
     <a href="about.html">About Us</a>
+    <a href="join.html">Join Us</a>
     <a href="contact.html">Contact Us</a>
   </nav>
 
@@ -183,35 +169,49 @@
     <p>Timeless Fashion. Modern Vision.</p>
   </div>
 
-  <!-- About Section -->
-  <section class="about">
-    <p>
-      SOLISS was founded with the belief that fashion should be more than clothing—it should be a statement. 
-      Our designs combine bold creativity with timeless elegance, inspired by individuality and self-expression. 
-      What started as a small vision has grown into a label dedicated to pushing style forward.
-    </p>
-    <img src="images/placeholder.jpg.png" alt="SOLISS Fashion">
+  <!-- Founders Section -->
+  <section class="about-grid">
+    <div class="about-card" style="animation-delay: 0.3s;">
+      <img src="images/founder1.jpg" alt="Founder 1">
+      <h3>Sudhi C.</h3>
+      <p>Lead Designer and Creative Director, crafting bold and timeless fashion pieces for the label.</p>
+    </div>
+    <div class="about-card" style="animation-delay: 0.6s;">
+      <img src="images/founder2.jpg" alt="Founder 2">
+      <h3>Jade J.</h3>
+      <p>Operations Manager, running backend sales, logistics, and media content for SOLISS.</p>
+    </div>
+    <div class="about-card" style="animation-delay: 0.9s;">
+      <img src="images/founder3.jpg" alt="Founder 3">
+      <h3>Presleigh E.</h3>
+      <p>Community and Brand Ambassador, handling modeling, promotions, and customer engagement.</p>
+    </div>
   </section>
 
-  <!-- Mission Section -->
-  <section class="mission" id="mission">
-    <h2>Our Mission</h2>
-    <p>
-      To empower individuals through fashion that speaks louder than words—bold, elegant, and unapologetically unique.
-    </p>
-  </section>
-
-  <!-- TBD Section -->
-  <section class="mission" id="tbd">
-    <h2>Coming Soon</h2>
-    <p>Stay tuned for our next big statement.</p>
+  <!-- Future Members Section -->
+  <section class="about-grid">
+    <div class="about-card" style="animation-delay: 1.2s;">
+      <img src="images/future1.jpg" alt="Future Member 1">
+      <h3>Open Collaboration</h3>
+      <p>We welcome creators and passionate individuals to join our team or submit unique designs.</p>
+    </div>
+    <div class="about-card" style="animation-delay: 1.5s;">
+      <img src="images/future2.jpg" alt="Future Member 2">
+      <h3>Community Creators</h3>
+      <p>Be part of the SOLISS journey by helping us shape bold and innovative fashion statements.</p>
+    </div>
+    <div class="about-card" style="animation-delay: 1.8s;">
+      <img src="images/future3.jpg" alt="Future Member 3">
+      <h3>Collaborators</h3>
+      <p>If you have creative ideas or designs, we are excited to integrate them into our vision.</p>
+    </div>
   </section>
 
   <!-- Footer Buttons -->
   <footer>
-    <button class="footer-btn">Explore</button>
-    <button class="footer-btn">Join Us</button>
-    <button class="footer-btn">Follow</button>
+    <a href="explore.html" class="footer-btn">Explore</a>
+    <a href="join.html" class="footer-btn">Join Us</a>
+    <a href="socials.html" class="footer-btn">Follow</a>
   </footer>
 
   <script>
@@ -219,14 +219,6 @@
     window.addEventListener("scroll", () => {
       const hero = document.querySelector(".fade-on-scroll");
       hero.style.opacity = 1 - window.scrollY / 300;
-
-      // Reveal mission sections
-      document.querySelectorAll(".mission").forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if(rect.top < window.innerHeight - 100){
-          section.classList.add("visible");
-        }
-      });
     });
   </script>
 </body>
