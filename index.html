@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SOLISS | Fashion Label</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      width: 100%;
+      padding: 15px 40px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: flex-end;
+      gap: 30px;
+      z-index: 200;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0%;
+      height: 2px;
+      background: #fff;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #aaa;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .container {
+      position: relative;
+      top: 50vh;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards, moveUp 1.5s ease-in-out 2s forwards;
+    }
+
+    .container h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      transition: all 0.8s ease;
+    }
+
+    .container p {
+      font-size: 1.2rem;
+      color: #aaa;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes moveUp {
+      to {
+        top: 25vh;
+        transform: scale(0.9);
+      }
+    }
+
+    /* About Section */
+    .about {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 100px 10%;
+      gap: 50px;
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: slideFadeIn 1.5s ease 3.5s forwards;
+    }
+
+    .about p {
+      flex: 1;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .about img {
+      flex: 1;
+      max-width: 100%;
+      border-radius: 12px;
+    }
+
+    @keyframes slideFadeIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Scroll Fade Effect */
+    .fade-on-scroll {
+      transition: opacity 0.8s ease;
+    }
+
+    /* Mission Section */
+    .mission {
+      text-align: center;
+      padding: 100px 10%;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+
+    .mission.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mission h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .mission p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    /* Footer Buttons */
+    footer {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .footer-btn {
+      padding: 12px 25px;
+      border: 2px solid #fff;
+      border-radius: 8px;
+      color: #fff;
+      background: transparent;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .footer-btn:hover {
+      background: #fff;
+      color: #000;
+      transform: scale(1.1) rotate(-2deg);
+    }
+  </style>
+</head>
+<body>
+  <!-- Nav Bar -->
+  <nav>
+    <a href="store.html">Store</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
+
+  <!-- Hero -->
+  <div class="container fade-on-scroll">
+    <h1>SOLISS</h1>
+    <p>Timeless Fashion. Modern Vision.</p>
+  </div>
+
+  <!-- About Section -->
+  <section class="about">
+    <p>
+      SOLISS was founded with the belief that fashion should be more than clothing—it should be a statement. 
+      Our designs combine bold creativity with timeless elegance, inspired by individuality and self-expression. 
+      What started as a small vision has grown into a label dedicated to pushing style forward.
+    </p>
+    <img src="images/placeholder.jpg" alt="SOLISS Fashion">
+  </section>
+
+  <!-- Mission Section -->
+  <section class="mission" id="mission">
+    <h2>Our Mission</h2>
+    <p>
+      To empower individuals through fashion that speaks louder than words—bold, elegant, and unapologetically unique.
+    </p>
+  </section>
+
+  <!-- TBD Section -->
+  <section class="mission" id="tbd">
+    <h2>Coming Soon</h2>
+    <p>Stay tuned for our next big statement.</p>
+  </section>
+
+  <!-- Footer Buttons -->
+  <footer>
+    <button class="footer-btn">Explore</button>
+    <button class="footer-btn">Join Us</button>
+    <button class="footer-btn">Follow</button>
+  </footer>
+
+  <script>
+    // Scroll fade effect for hero
+    window.addEventListener("scroll", () => {
+      const hero = document.querySelector(".fade-on-scroll");
+      hero.style.opacity = 1 - window.scrollY / 300;
+
+      // Reveal mission sections
+      document.querySelectorAll(".mission").forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 100){
+          section.classList.add("visible");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
