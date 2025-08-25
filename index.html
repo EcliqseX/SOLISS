@@ -72,11 +72,15 @@
       font-size: 3rem;
       margin-bottom: 1rem;
       transition: all 0.8s ease;
+      position: relative;
+      top: 6px; /* nudged heading 2-8px down */
     }
 
     .container p {
       font-size: 1.2rem;
       color: #aaa;
+      position: relative;
+      top: 20px; /* pushed bio further down */
     }
 
     @keyframes fadeIn {
@@ -85,8 +89,8 @@
 
     @keyframes moveUp {
       to {
-        top: 15vh;          /* move higher */
-        transform: scale(0.9); /* shrink slightly */
+        top: 15vh;          /* moved higher */
+        transform: scale(0.9); /* slightly smaller */
       }
     }
 
