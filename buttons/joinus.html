@@ -71,7 +71,7 @@
 
     .join-text {
       flex: 1;
-      min-width: 300px;
+      min-width: 280px;
       opacity: 0;
       transform: translateX(-50px);
       animation: fadeSlideIn 1.2s forwards;
@@ -90,16 +90,19 @@
 
     .join-img {
       flex: 1;
-      min-width: 300px;
+      min-width: 280px;
       opacity: 0;
       transform: translateX(50px);
       animation: fadeSlideIn 1.2s forwards;
       animation-delay: 0.5s;
+      display: flex;
+      justify-content: center;
     }
 
     .join-img img {
       width: 100%;
-      max-width: 400px;
+      max-width: 350px; /* limits the size */
+      height: auto;
       border-radius: 12px;
     }
 
@@ -133,6 +136,18 @@
       background: #fff;
       color: #000;
       transform: scale(1.1) rotate(-2deg);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .join-us {
+        flex-direction: column-reverse;
+        padding: 100px 5%;
+      }
+
+      .join-img img {
+        max-width: 300px;
+      }
     }
   </style>
 </head>
@@ -169,4 +184,3 @@
   </footer>
 </body>
 </html>
-
