@@ -25,9 +25,58 @@
       overflow-x: hidden;
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Navigation */
+    nav {
+      width: 100%;
+      padding: 15px 40px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: flex-end;
+      gap: 30px;
+      z-index: 200;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0%;
+      height: 2px;
+      background: #fff;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #aaa;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Page Content Wrapper */
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      padding-top: 120px; /* leaves space for fixed navbar */
       text-align: center;
     }
 
@@ -59,6 +108,33 @@
       color: #aaa;
     }
 
+    /* Footer Buttons */
+    footer {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .footer-btn {
+      padding: 12px 25px;
+      border: 2px solid #fff;
+      border-radius: 8px;
+      color: #fff;
+      background: transparent;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .footer-btn:hover {
+      background: #fff;
+      color: #000;
+      transform: scale(1.1) rotate(-2deg);
+    }
+
+    /* Animations */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -67,15 +143,32 @@
 </head>
 <body>
 
-  <!-- Title -->
-  <h1>Socials</h1>
+  <!-- Nav Bar -->
+  <nav>
+    <a href="store.html">Store</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
 
-  <!-- Social Icons -->
-  <div class="social-icons">
-    <a href="https://instagram.com/yourusername" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://tiktok.com/@yourusername" target="_blank"><i class="fab fa-tiktok"></i></a>
-    <a href="https://facebook.com/yourusername" target="_blank"><i class="fab fa-facebook"></i></a>
+  <!-- Main Content -->
+  <div class="content">
+    <!-- Title -->
+    <h1>Socials</h1>
+
+    <!-- Social Icons -->
+    <div class="social-icons">
+      <a href="https://instagram.com/yourusername" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://tiktok.com/@yourusername" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://facebook.com/yourusername" target="_blank"><i class="fab fa-facebook"></i></a>
+    </div>
   </div>
+
+  <!-- Footer Buttons -->
+  <footer>
+    <a href="explore.html" class="footer-btn">Explore</a>
+    <a href="join.html" class="footer-btn">Join Us</a>
+    <a href="social.html" class="footer-btn">Follow</a>
+  </footer>
 
 </body>
 </html>
