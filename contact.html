@@ -1,1 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SOLISS | Contact</title>
 
+  <!-- Favicon -->
+  <link rel="icon" href="images/icon.png" type="image/png">
+
+  <!-- Font Awesome for Gmail Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    /* Contact Container */
+    .contact-container {
+      display: flex;
+      gap: 50px;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    /* Image Section */
+    .contact-container img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 12px;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    /* Text Section */
+    .contact-text {
+      flex: 1;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+      animation-delay: 1s;
+    }
+
+    .contact-text h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .contact-text p {
+      font-size: 1.2rem;
+      color: #aaa;
+      margin-bottom: 30px;
+    }
+
+    /* Gmail Icon */
+    .contact-text a {
+      color: #fff;
+      font-size: 3rem;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .contact-text a:hover {
+      transform: scale(1.2);
+      color: #aaa;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .contact-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .contact-container img {
+        max-width: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contact-container">
+    <!-- Left Image -->
+    <img src="images/contact-placeholder.jpg" alt="Contact SOLISS">
+
+    <!-- Right Text -->
+    <div class="contact-text">
+      <h1>Contact Us</h1>
+      <p>You can reach us directly via email. We’d love to hear from you.</p>
+      <a href="mailto:sollis.jps@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+
+</body>
+</html>
