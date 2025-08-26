@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SOLISS | Socials</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/icon.png" type="image/png">
+
+  <!-- Font Awesome for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    /* Title */
+    h1 {
+      font-size: 3rem;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    /* Social Icons Container */
+    .social-icons {
+      margin-top: 40px;
+      display: flex;
+      gap: 40px;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+      animation-delay: 2s;
+    }
+
+    .social-icons a {
+      color: #fff;
+      font-size: 3rem; /* Same size for all icons */
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+      color: #aaa;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Title -->
+  <h1>Socials</h1>
+
+  <!-- Social Icons -->
+  <div class="social-icons">
+    <a href="https://instagram.com/yourusername" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://tiktok.com/@yourusername" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://facebook.com/yourusername" target="_blank"><i class="fab fa-facebook"></i></a>
+  </div>
+
+</body>
+</html>
